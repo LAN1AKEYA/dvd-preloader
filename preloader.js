@@ -18,10 +18,6 @@ fetch(new URL('config.json', relativePath))
         return response.json();
     })
     .then(function(config) {
-    console.log(config.moving.speed);
-
-
-    
     let bgSettings = `url(${new URL(config.elements.logoSrc, relativePath).href}) 0/${config.elements.widthDvd}px no-repeat, linear-gradient(to ${config.gradientSettings.gradientRange}, `;
     for (let i = 0; i < config.gradientSettings.gradientColors.length; i++) {
         bgSettings += `${(config.gradientSettings.gradientColors[i]) + ((i + 1 == config.gradientSettings.gradientColors.length) ? '' : ', ')}`;
