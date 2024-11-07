@@ -9,6 +9,7 @@ dvdContain.style.backdropFilter = 'blur(10px)';
 dvdContain.style.backgroundBlendMode = 'difference';
 dvdContain.style.top = 0;
 dvdContain.style.left = 0;
+dvdContain.style.backgroundPosition = `center`;
 document.body.appendChild(dvdContain);
 let positionX = positionY = 0, invertX = invertY = false;
 
@@ -25,7 +26,6 @@ fetch(new URL('config.json', relativePath))
     bgSettings += `), url(${new URL(config.elements.bgSrc, relativePath).href}) center/cover #000`;
     dvdContain.style.background = bgSettings;
     dvdContain.style.transition = `opacity ${config.moving.blendTime}s, background-position ${config.moving.drunk}s`;
-    
     function moving() {
         positionX += (invertX ? -1 : 1) * config.moving.counter;
         positionY += (invertY ? -1 : 1) * config.moving.counter;
